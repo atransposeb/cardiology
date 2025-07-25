@@ -1,38 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #f8f9fa;
   min-height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.nav-content {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 2.5rem;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.company-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.login-btn, .hire-btn {
+  font-family: 'DM Sans', sans-serif;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover, .hire-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.get-plus-btn {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.get-plus-btn:hover {
+  background-color: #333;
+}
+
+/* Main content */
+.main-content {
+  padding-top: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 8rem 0 2rem 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 50vh;
 }
 
-.App-link {
-  color: #61dafb;
+.main-title {
+  font-family: 'DM Sans', sans-serif;
+  color: #000000;
+  font-weight: 400;
+  font-size: 8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.01px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+
+/* Cards showcase */
+.card-scroll-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 1.5rem 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  aspect-ratio: 3/2;
+  width: 400px;
+  min-width: 380px;
+  max-width: 420px;
+  height: auto;
+  background: #000;
+  border: 0.75% solid #fff; /* ~3px at 400px width */
+  border-radius: 7%; /* ~28px */
+  color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5% 4% 2% 4%; /* ~10px 16px 8px */
+  position: relative;
+  font-family: 'DM Sans', sans-serif;
+  scroll-snap-align: center;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 15%; /* ~40px of 266.67px */
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-name {
+  font-size: 1.1em; /* ~22px */
+  font-weight: 700;
+  margin-bottom: 0.025em; /* ~1px */
+}
+
+.card-handle {
+  font-size: 0.6em; /* ~11px */
+  color: #e0e0e0;
+  margin-top: 0.15em; /* ~3px */
+}
+
+.card-logo svg {
+  width: 12%; /* ~48px */
+  height: auto;
+  min-width: 32px;
+  max-width: 48px;
+}
+
+.card-logo-img {
+  width: 12%;
+  min-width: 32px;
+  max-width: 48px;
+  height: auto;
+  display: block;
+}
+
+.card-code {
+  font-size: 1.5em; /* ~20px */
+  font-family: 'DM Sans', monospace, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.0325em; /* ~13px */
+  background: none;
+  color: #fff;
+  border: 0.00375em solid #747474; /* ~1.5px */
+  border-radius: 0.6em; /* ~4px */
+  padding: 0.3em 1em; /* ~2px 7px */
+  align-self: center;
+  margin: 0.125em 0; /* ~5px */
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 15%; /* ~40px */
+}
+
+.card-badge svg {
+  width: 10%; /* ~40px */
+  height: auto;
+  min-width: 22px;
+  max-width: 36px;
+}
+
+.card-badge-label {
+  font-size: 0.25em; /* ~10px */
+  color: #e0e0e0;
+  margin-top: 0.025em; /* ~1px */
+}
+
+.card-qr svg {
+  width: 10%; /* ~40px */
+  height: auto;
+  min-width: 22px;
+  max-width: 36px;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .main-title {
+    font-size: 10rem;
   }
-  to {
-    transform: rotate(360deg);
+  .hero-section {
+    padding: 6rem 0 2rem 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 4rem;
+  }
+  .hero-section {
+    padding: 5rem 0 2rem 0;
+    min-height: 40vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 70px;
+  }
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .nav-content {
+    padding-right: 1rem;
+  }
+  .nav-links {
+    gap: 0.5rem;
+  }
+  .login-btn, .get-plus-btn, .hire-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .hero-section {
+    padding: 4rem 0 2rem 0;
+    min-height: 35vh;
+  }
+  .main-title {
+    font-size: 3.5rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 0.8rem;
+  }
+  .nav-content {
+    padding-right: 0.5rem;
+  }
+  .nav-links {
+    gap: 0.3rem;
+  }
+  .login-btn, .get-plus-btn, .hire-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  .main-content {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 60px;
+  }
+  .hero-section {
+    padding: 3rem 0 1rem 0;
+    min-height: 30vh;
+  }
+  .main-title {
+    font-size: 2.8rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-title {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 0.9rem;
   }
 }
