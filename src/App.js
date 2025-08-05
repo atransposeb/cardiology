@@ -27,12 +27,10 @@ function App() {
       setScrollProgress(progress);
       setShowNavLogo(progress > 0.7);
       
-      // Update navbar glassmorphism based on scroll - more transparent when scrolled
       const navbar = document.querySelector('.navbar');
       if (navbar) {
-        // Reverse the transparency: more opaque at top, transparent when scrolled
-        const opacity = 0.95 - (progress * 0.95); // Goes from 0.95 to 0
-        const blur = 30 - (progress * 25); // Goes from 30 to 5
+        const opacity = 0.95 - (progress * 0.95);
+        const blur = 30 - (progress * 25);
         
         navbar.style.background = `rgba(255, 255, 255, ${opacity})`;
         navbar.style.backdropFilter = `blur(${blur}px) saturate(180%)`;
@@ -58,7 +56,6 @@ function App() {
     setSelectedCard(null);
   };
 
-  // Slide navigation functions
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -379,14 +376,12 @@ function App() {
 
             {/* Navigation Controls */}
             <div className="slide-navigation">
-              {currentSlide > 0 && (
-                <button className="nav-button back-button" onClick={prevSlide}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  Back
-                </button>
-              )}
+              <button className={`nav-button back-button ${currentSlide === 0 ? 'hidden' : ''}`} onClick={prevSlide}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                Back
+              </button>
               
               <div className="pagination-indicators">
                 {[0, 1, 2, 3].map((index) => (
@@ -398,14 +393,12 @@ function App() {
                 ))}
               </div>
 
-              {currentSlide < 3 && (
-                <button className="nav-button next-button" onClick={nextSlide}>
-                  Next
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-              )}
+              <button className={`nav-button next-button ${currentSlide === 3 ? 'hidden' : ''}`} onClick={nextSlide}>
+                Next
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
             </div>
           </div>
         </div>
